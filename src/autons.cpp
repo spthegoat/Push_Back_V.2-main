@@ -105,37 +105,42 @@ void default_constants() {
 void low_goal_auto() {
   // Drive to middle goal 
   basket();
-  chassis.pid_odom_set({{0_in, 4_in}, fwd, 110}, true);
+  //chassis.pid_odom_set({{0_in, 4_in}, fwd, 110}, true);
+  //chassis.pid_wait();
+  //chassis.pid_turn_set(46_deg, 70);
+  //chassis.pid_wait();
+  //chassis.pid_odom_set({{17_in, 28_in}, fwd, 30}, true);
+  //chassis.pid_wait();
+  //pros::delay(1000);
+  //chassis.pid_odom_set({{8.5_in, 33.5_in, -43_deg}, fwd, 70}, true);
+  chassis.pid_odom_set({{{0_in, 4_in, 46_deg}, fwd, 120},
+                         {{10_in, 21_in}, fwd, 30}},
+                         true);
+  chassis.pid_wait(); 
+  scraper.set(true); // Deploy scraper
+  chassis.pid_odom_set({{20_in, 31_in}, fwd, 90});
   chassis.pid_wait();
-  chassis.pid_turn_set(46_deg, 70);
-  chassis.pid_wait();
-  chassis.pid_odom_set({{17_in, 28_in}, fwd, 30}, true);
-  chassis.pid_wait();
-  pros::delay(1000);
-  chassis.pid_odom_set({{8.5_in, 33.5_in, -43_deg}, fwd, 70}, true);
-  // chassis.pid_odom_set({{{0_in, 4_in, 46_deg}, fwd, 120},
-                        // {{17_in, 28_in}, fwd, 30},
-                        // {{8.5_in, 33.5_in, -43_deg}, fwd, 70}},
-                       // true);
+  scraper.set(false); // Retract scraper
+  chassis.pid_odom_set({{7.5_in, 35_in, -43_deg}, fwd, 70}, true);
   chassis.pid_wait();
   low_goal();
-  pros::delay(2000);
-  // chassis.pid_odom_set({{{42.5_in, 10_in, 180_deg}, rev, 120},
-                        // {{42.5_in, 8_in, 0_deg}, fwd, 120}},
-                      // true);
-  chassis.pid_odom_set({{41_in, 10_in}, rev, 110}, true);
-  chassis.pid_wait(); 
-  chassis.pid_turn_set(180_deg, 50);
+  pros::delay(4000);
+  chassis.pid_odom_set({{{35_in, 12_in, 180_deg}, rev, 120},
+                       {{35_in, 8_in, 0_deg}, fwd, 120}},
+                       true);
+ // chassis.pid_odom_set({{41_in, 10_in}, rev, 110}, true);
+  //chassis.pid_wait(); 
+  //chassis.pid_turn_set(180_deg, 50);
   chassis.pid_wait();// Ensure the drive command completes before ending the function
   scraper.set(true); // Deploy scraper
   basket();
   pros::delay(500);
-  chassis.pid_odom_set({{41_in, -16_in, 180_deg}, fwd, 150}, true);
+  chassis.pid_odom_set({{35_in, -16_in, 180_deg}, fwd, 150}, true);
   chassis.pid_wait();
   basket();
   pros::delay(3000); 
   chassis.pid_wait();
-  chassis.pid_odom_set({{41_in, 0_in, 180_deg}, rev, 110}, true);
+  chassis.pid_odom_set({{35_in, 0_in, 180_deg}, rev, 110}, true);
   chassis.pid_wait();
   scraper.set(false); // Retract scraper
   chassis.pid_turn_set(0_deg, 100);
