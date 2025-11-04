@@ -102,6 +102,18 @@ void default_constants() {
   chassis.pid_angle_behavior_set(ez::shortest);  // Changes the default behavior for turning, this defaults it to the shortest path there
 } 
 
+void right_goal() {
+  basket();
+  chassis.pid_odom_set({{{0_in, 22_in, 0_deg}, fwd, 120},
+                         {{-2_in, 33_in, 30_deg}, fwd, 30}},
+                         false);
+  chassis.pid_wait();
+  scraper.set(true); // Deploy scraper
+  chassis.pid_odom_set({{10_in, 40_in}, fwd, 90});
+  chassis.pid_wait();
+  scraper.set(false); // Retract scraper
+}    
+
 void low_goal_auto() {
   // Drive to middle goal 
   basket();

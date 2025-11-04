@@ -1,10 +1,11 @@
 #pragma once
-
+void left_goal();
+void right_goal();
 void low_goal_auto();
 void middle_goal_auto();
 void default_constants();
 void drive_example();
-void turn_example();
+void turn_example();  
 void drive_and_turn();
 void wait_until_change_speed();
 void swing_example();

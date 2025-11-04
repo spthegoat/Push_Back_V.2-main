@@ -426,7 +426,7 @@
     "upload_options": {
       "description": "roboticsisez.com",
       "icon": "clawbot",
-      "slot": 2
+      "slot": 4
     },
     "use_early_access": false
   }
