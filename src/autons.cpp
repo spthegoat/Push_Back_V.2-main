@@ -105,11 +105,11 @@ void default_constants() {
 void right_goal() {
   basket();
   chassis.pid_odom_set({{{0_in, 22_in, 0_deg}, fwd, 120},
-                         {{-2_in, 33_in, 30_deg}, fwd, 30}},
-                         false);
+                         {{0_in, 33_in, 36_deg}, fwd, 30}},
+                         true);
   chassis.pid_wait();
   scraper.set(true); // Deploy scraper
-  chassis.pid_odom_set({{10_in, 40_in}, fwd, 90});
+  chassis.pid_odom_set({{11_in, 44_in}, fwd, 90});
   chassis.pid_wait();
   scraper.set(false); // Retract scraper
 }    
