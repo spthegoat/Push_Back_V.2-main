@@ -104,8 +104,9 @@ void default_constants() {
 
 void right_goal() {
   basket();
-  chassis.pid_odom_set({{{0_in, 22_in, 0_deg}, fwd, 120},
-                         {{0_in, 33_in, 36_deg}, fwd, 30}},
+  chassis.pid_odom_set({{{0_in, 26_in, 0_deg}, fwd, 120},
+                         {{0_in, 30_in, 36_deg}, fwd, 30},
+                         {{4_in, 35_in}, fwd, 70}},
                          true);
   chassis.pid_wait();
   scraper.set(true); // Deploy scraper
