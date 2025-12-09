@@ -258,44 +258,34 @@ void opcontrol() {
     // . . .
   if (master.get_digital(DIGITAL_L1)) {
     // middle goal
-    piston1.set(false); 
-    front_intake.move(115);
-    middle_intake.move(115);
-    top_intake.move(-115);
+    front_intake.move(80);
+    middle_intake.move(80);
+    top_intake.move(80);
   } else if (master.get_digital(DIGITAL_L2)) {
     // outtake
-    piston1.set(false);
-    front_intake.move(-80);
-    middle_intake.move(80);
-    top_intake.move(0);
+    front_intake.move(-127);
+    middle_intake.move(127);
+    top_intake.move(-127);
  // Retract piston for outtake
   } else if (master.get_digital(DIGITAL_R1)) {
        // High goal
-    piston1.set(true);
-    front_intake.move(127);
-    middle_intake.move(127);
+     front_intake.move(127);
+    middle_intake.move(-127);
     top_intake.move(127);
  // Extend piston for high goal
-  } else if (master.get_digital(DIGITAL_RIGHT)) {
-    // Auto 180 turn
-    chassis.pid_turn_set(180_deg, 110); // Turns the robot 180 degrees
-    pros::delay(500); // Optional: short delay to prevent repeated turns if button is held
     } else if (master.get_digital(DIGITAL_R2)) {
     // Basket
-    piston1.set(false);
     front_intake.move(127);
-    middle_intake.move(0);
+    middle_intake.move(-127);
     top_intake.move(127);
  // Retract piston 
     } else if (master.get_digital(DIGITAL_DOWN)) {
     // High goal
-    piston1.set(false); 
     front_intake.move(127);
     middle_intake.move(-127);
     top_intake.move(-127);
     } else {
     // Stop intake
-    piston1.set(false);
     front_intake.move(0);
     middle_intake.move(0);
     top_intake.move(0);

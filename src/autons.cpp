@@ -12,35 +12,30 @@ const int SWING_SPEED = 120;
 
 
 void middle_goal() {
-  piston1.set(false);
   front_intake.move(100);
   middle_intake.move(100);
   top_intake.move(-100);
 }
 
 void low_goal() {
- piston1.set(false);
  front_intake.move(-70);
  middle_intake.move(70);
  top_intake.move(0);
 }
 
 void high_goal() {
-  piston1.set(true);
   front_intake.move(127);
   middle_intake.move(0);
   top_intake.move(127);  
 }
 
 void basket() {
-  piston1.set(false);
   front_intake.move(127);
   middle_intake.move(0);
   top_intake.move(127);
 }
 
 void stop() {
-  piston1.set(false);
   front_intake.move(0);
   middle_intake.move(0);
   top_intake.move(0);
