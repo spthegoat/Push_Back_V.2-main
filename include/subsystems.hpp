@@ -15,7 +15,3 @@ inline ez::Piston bunny('H', true);
 inline ez::Piston bunny_secondary('C', true);
 
 // Or create a helper function to control both:
-void setBunny(bool state) {
-    bunny.set(state);
-    bunny_secondary.set(state);
-}
