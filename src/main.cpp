@@ -8,8 +8,8 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-13, 14, -15},     // Left Chassis Ports (negative port will reverse it!)
-    {18, -17, 16},  // Right Chassis Ports (negative port will reverse it!)
+    {13, -14, -15}, // Left Chassis Ports (negative port will reverse it!)
+    {-18, 17, 16},  // Right Chassis Ports (negative port will reverse it!)
 
     10,      // IMU Port
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -284,8 +284,7 @@ void opcontrol() {
     front_intake.move(127);
     middle_intake.move(-127);
     top_intake.move(-127);
-    } else {
-    // Stop intake
+    } else {   // Stop intake
     front_intake.move(0);
     middle_intake.move(0);
     top_intake.move(0);
@@ -296,6 +295,14 @@ void opcontrol() {
   if (master.get_digital_new_press(DIGITAL_A)) {
   scraperState = !scraperState;
   scraper.set(scraperState);
+    pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
+  }
+
+  static bool bunnyState=false;
+  if (master.get_digital_new_press(DIGITAL_B)) {
+  bunnyState = !bunnyState;
+  bunny.set(bunnyState);
+  bunny_secondary.set(bunnyState);
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }} // <-- Add this closing brace to end opcontrol()

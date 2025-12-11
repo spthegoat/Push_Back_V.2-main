@@ -7,31 +7,31 @@
 
 // These are out of 127
 const int DRIVE_SPEED = 120;
-const int TURN_SPEED = 90;
+const int TURN_SPEED = 75;
 const int SWING_SPEED = 120;
 
 
 void middle_goal() {
-  front_intake.move(100);
-  middle_intake.move(100);
-  top_intake.move(-100);
+  front_intake.move(80);
+  middle_intake.move(80);
+  top_intake.move(80);
 }
 
 void low_goal() {
- front_intake.move(-70);
- middle_intake.move(70);
- top_intake.move(0);
+ front_intake.move(-127);
+ middle_intake.move(127);
+ top_intake.move(-127);
 }
 
 void high_goal() {
   front_intake.move(127);
-  middle_intake.move(0);
+  middle_intake.move(-127);
   top_intake.move(127);  
 }
 
 void basket() {
   front_intake.move(127);
-  middle_intake.move(0);
+  middle_intake.move(-127);
   top_intake.move(127);
 }
 
