@@ -11,6 +11,4 @@ inline pros::Motor front_intake(20);
 inline pros::Motor middle_intake(21);
 inline pros::Motor top_intake(12);
 inline ez::Piston scraper('D', true);
-inline ez::Piston bunny('H', true);
-inline ez::Piston bunny_secondary('C', true);
-// Or create a helper function to control both:
+inline ez::Piston bunny('A', false);

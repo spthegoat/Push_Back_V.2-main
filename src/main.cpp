@@ -299,10 +299,9 @@ void opcontrol() {
   }
 
   static bool bunnyState=false;
-  if (master.get_digital_new_press(DIGITAL_B)) {
+  if (master.get_digital_new_press(DIGITAL_A)) {
   bunnyState = !bunnyState;
   bunny.set(bunnyState);
-  bunny_secondary.set(bunnyState);
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }} // <-- Add this closing brace to end opcontrol()

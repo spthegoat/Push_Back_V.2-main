@@ -6,9 +6,9 @@
 /////
 
 // These are out of 127
-const int DRIVE_SPEED = 120;
+const int DRIVE_SPEED = 115;
 const int TURN_SPEED = 75;
-const int SWING_SPEED = 120;
+const int SWING_SPEED = 115;
 
 
 void middle_goal() {
@@ -26,7 +26,8 @@ void low_goal() {
 void high_goal() {
   front_intake.move(127);
   middle_intake.move(-127);
-  top_intake.move(127);  
+  top_intake.move(127); 
+  bunny.set(true); 
 }
 
 void basket() {
